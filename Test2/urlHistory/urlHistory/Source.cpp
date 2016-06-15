@@ -1,12 +1,18 @@
 #include <iostream>
 #include "urlHistory.hpp"
 #include "urls.hpp"
+#include <cassert>
 
 int main() {
 	
-	urlHistory urlsHist1;
-	urlHistory urlHist2(urls("http", "//google.com"));
-	std::cout << urlsHist1.numberOfUrls << std::endl;
-	return 0;
+	urls u("http", "//google.com");
+	std::string str1 = static_cast<std::string>(u);
+	std::string str2 = u;
+	assert(str1 == "http://google.com");
+	std::cout << str1 << std::endl;
+
+	std::string add = "http://github.com";
+	urls u2(add);
+	std::cout << add.substr(add.size() - 4) << std::endl;
 	
 }
